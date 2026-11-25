@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "notes": "Initial base release for Machinery Blank Template.",
+  "pub_date": "2026-11-25T19:01:42Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUdnBqcWtuSkxaTDhrejU4STJIeFZ5bFdsQ0V3TXZlaXBvckhPUTRFMlBiTjFtendEYWFJZ3piaEtsL2NTU2JKbHBobTM1R1F4d2w3bEpGRlVXMlZNK2tHa3hsT013bFFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1NjMzMzAyCWZpbGU6TWFjaGluZXJ5IEJsYW5rIFRlbXBsYXRlXzEuMC4wX3g2NC1zZXR1cC5leGUJdmVyc2lvbjoxLjAuMAp0YmU3TElxVStGazFDNTExK1FwS1M2TW9ibjRUazdvZWZrTm9XbUpNaVBIV2xOZUNWVldpYzJ0MTFLNHFMdDgzQzI1aFpZd3FlOFlnWnNSaHAwTFJDQT09Cg==",
+      "url": "https://github.com/kaua-silbershlach-parodes/platform-blank-template/releases/download/machinery-v1.0.0/Machinery.Blank.Template_1.0.0_x64-setup.exe"
+    },
+    "windows-x86_64-nsis": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUdnBqcWtuSkxaTDhrejU4STJIeFZ5bFdsQ0V3TXZlaXBvckhPUTRFMlBiTjFtendEYWFJZ3piaEtsL2NTU2JKbHBobTM1R1F4d2w3bEpGRlVXMlZNK2tHa3hsT013bFFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1NjMzMzAyCWZpbGU6TWFjaGluZXJ5IEJsYW5rIFRlbXBsYXRlXzEuMC4wX3g2NC1zZXR1cC5leGUJdmVyc2lvbjoxLjAuMAp0YmU3TElxVStGazFDNTExK1FwS1M2TW9ibjRUazdvZWZrTm9XbUpNaVBIV2xOZUNWVldpYzJ0MTFLNHFMdDgzQzI1aFpZd3FlOFlnWnNSaHAwTFJDQT09Cg==",
+      "url": "https://github.com/kaua-silbershlach-parodes/platform-blank-template/releases/download/machinery-v1.0.0/Machinery.Blank.Template_1.0.0_x64-setup.exe"
+    }
+  }
+}
