@@ -1,0 +1,57 @@
+name: Capacitor iOS build (simulator)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'capacitor-blank-template/ios/**'
+      - 'capacitor-blank-template/www/**'
+      - 'capacitor-blank-template/capacitor.config.ts'
+      - 'capacitor-blank-template/package.json'
+      - 'capacitor-blank-template/package-lock.json'
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+        working-directory: capacitor-blank-template
+      - run: npx cap sync ios
+        working-directory: capacitor-blank-template
+      - name: Install CocoaPods dependencies
+        working-directory: capacitor-blank-template/ios/App
+        run: pod install
+      - name: Build for the iOS Simulator (unsigned)
+        working-directory: capacitor-blank-template
+        run: >
+          xcodebuild build
+          -workspace ios/App/App.xcworkspace
+          -scheme App
+          -sdk iphonesimulator
+          -destination 'generic/platform=iOS Simulator'
+          CODE_SIGNING_ALLOWED=NO
+      - name: Package unsigned device IPA
+        working-directory: capacitor-blank-template
+        run: |
+          xcodebuild build \
+            -workspace ios/App/App.xcworkspace \
+            -scheme App \
+            -sdk iphoneos \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            -derivedDataPath build-dd
+          mkdir -p Payload
+          cp -R build-dd/Build/Products/Release-iphoneos/App.app Payload/
+          zip -qry capacitor-blank-template-ios-unsigned.ipa Payload
+          ls -la capacitor-blank-template-ios-unsigned.ipa
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-unsigned-ipa
+          path: capacitor-blank-template/capacitor-blank-template-ios-unsigned.ipa

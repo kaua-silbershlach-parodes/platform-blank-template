@@ -1,0 +1,10 @@
+# fastlane configuration for this template.
+# Docs: https://docs.fastlane.tools/advanced/Appfile/
+
+app_identifier("com.aeliteestrangeira.capacitorblanktemplate") # iOS bundle ID
+package_name("com.aeliteestrangeira.capacitorblanktemplate")    # Android package name
+
+# Fill these in when the store accounts exist:
+# apple_id("your-apple-id@example.com")   # Apple ID for App Store Connect
+# team_id("YOUR_TEAM_ID")                 # Apple Developer Team ID
+# itc_team_id("YOUR_ITC_TEAM_ID")         # App Store Connect Team ID (if different)

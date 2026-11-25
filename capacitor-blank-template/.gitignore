@@ -1,0 +1,18 @@
+node_modules/
+dist/
+release/
+android/app/build/
+android/build/
+android/.gradle/
+android/local.properties
+*.log
+.DS_Store
+
+# Store secrets — real credentials NEVER enter git (templates only)
+store/google-play/service-account.json
+store/google-play/*.jks
+store/app-store/appstore-connect.json
+store/app-store/*.p8
+*.jks
+*.keystore
+keystore.properties

@@ -1,0 +1,46 @@
+# Publishing lanes for the Capacitor Blank Template.
+# Backend only: these lanes read the store credentials prepared in
+# store/google-play/ and store/app-store/ (see store/README.md).
+# The real credential files are git-ignored and must exist locally
+# before a lane can run.
+#
+#   bundle exec fastlane android internal   # Play internal track
+#   bundle exec fastlane ios beta           # TestFlight (macOS only)
+
+default_platform(:android)
+
+GOOGLE_PLAY_JSON = File.expand_path("../google-play/service-account.json", __dir__)
+APPSTORE_JSON = File.expand_path("../app-store/appstore-connect.json", __dir__)
+
+platform :android do
+  desc "Build the release AAB and upload it to the Play internal track"
+  lane :internal do
+    gradle(
+      project_dir: "../android",
+      task: "bundle",
+      build_type: "Release"
+    )
+    upload_to_play_store(
+      track: "internal",
+      json_key: GOOGLE_PLAY_JSON,
+      aab: "../android/app/build/outputs/bundle/release/app-release.aab",
+      skip_upload_apk: true
+    )
+  end
+end
+
+platform :ios do
+  desc "Build the iOS app and upload it to TestFlight"
+  lane :beta do
+    api_key = app_store_connect_api_key(
+      key_id: JSON.parse(File.read(APPSTORE_JSON))["key_id"],
+      issuer_id: JSON.parse(File.read(APPSTORE_JSON))["issuer_id"],
+      key_filepath: File.expand_path(JSON.parse(File.read(APPSTORE_JSON))["key_filepath"], "../app-store")
+    )
+    build_app(
+      workspace: "../ios/App/App.xcworkspace",
+      scheme: "App"
+    )
+    upload_to_testflight(api_key: api_key)
+  end
+end

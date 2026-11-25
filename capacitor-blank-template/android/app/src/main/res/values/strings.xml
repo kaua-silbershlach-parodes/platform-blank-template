@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Capacitor Blank Template</string>
+    <string name="title_activity_main">Capacitor Blank Template</string>
+    <string name="package_name">com.aeliteestrangeira.capacitorblanktemplate</string>
+    <string name="custom_url_scheme">com.aeliteestrangeira.capacitorblanktemplate</string>
+</resources>

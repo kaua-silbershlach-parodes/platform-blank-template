@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Capacitor Blank Template</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <img class="logo" src="icon.png" alt="App icon" />
+    <div class="titles">
+      <h1>Capacitor Blank Template</h1>
+      <p class="subtitle">Blank mobile shell by A Elite Estrangeira</p>
+    </div>
+    <span class="version-badge">v<span id="bundle-version">…</span></span>
+  </header>
+
+  <main class="content">
+    <section class="card welcome">
+      <h2>Start here</h2>
+      <p>
+        This is a blank template: a working mobile shell, the house icon,
+        an Android APK build, and live updates served straight from
+        GitHub Releases. Replace this panel with your product's interface
+        and keep the shell.
+      </p>
+      <p id="whats-new" class="whats-new" hidden></p>
+    </section>
+
+    <section class="card updates">
+      <div class="updates-head">
+        <h2>Updates</h2>
+        <span id="update-state" class="state state-idle">idle</span>
+      </div>
+      <p id="update-message" class="update-message">
+        The app checks GitHub Releases for a newer bundle.
+      </p>
+      <div class="progress-wrap" hidden id="progress-wrap">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="actions">
+        <button id="btn-check" class="btn">Check for updates</button>
+      </div>
+      <ul id="update-log" class="update-log"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 A Elite Estrangeira — All rights reserved.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

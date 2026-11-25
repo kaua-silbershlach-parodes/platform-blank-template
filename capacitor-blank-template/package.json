@@ -1,0 +1,23 @@
+{
+  "author": "A Elite Estrangeira",
+  "dependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/core": "^7.0.0",
+    "@capacitor/ios": "^7.6.10",
+    "@capgo/capacitor-updater": "^7.0.0"
+  },
+  "description": "Blank Capacitor template with a graphical shell, Android APK build and GitHub live updates, by A Elite Estrangeira.",
+  "devDependencies": {
+    "@capacitor/cli": "^7.0.0",
+    "typescript": "^5.9.3"
+  },
+  "license": "UNLICENSED",
+  "name": "capacitor-blank-template",
+  "private": true,
+  "scripts": {
+    "apk:debug": "npx cap sync android && cd android && ./gradlew assembleDebug",
+    "bundle": "node scripts/make-bundle.mjs",
+    "sync": "npx cap sync android"
+  },
+  "version": "1.0.0"
+}
