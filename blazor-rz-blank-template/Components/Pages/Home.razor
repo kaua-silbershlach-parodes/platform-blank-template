@@ -1,0 +1,130 @@
+@page "/"
+@inject UpdateService Updates
+
+<header class="topbar">
+    <img class="app-icon" src="icon.png" alt="" />
+    <div class="title-block">
+        <h1>Blazor Blank Template</h1>
+        <p class="subtitle">.NET 9 &middot; Blazor &amp; Razor &middot; GitHub auto-updates</p>
+    </div>
+    <span class="version-badge">v@_version</span>
+</header>
+
+<main>
+    <section class="card">
+        <h2>Start here</h2>
+        <p>
+            This is a blank starting point: a .NET 9 desktop app whose UI is
+            built with Blazor and Razor components, rendered in a native
+            window. Replace this page with your own components and ship new
+            versions as GitHub releases — installed copies update themselves.
+        </p>
+    </section>
+
+    <section class="card">
+        <div class="card-head">
+            <h2>Updates</h2>
+            <span class="state-chip">@_state</span>
+        </div>
+        <p class="muted">@_message</p>
+        <div class="progress-track">
+            <div class="progress-fill" style="width:@(_progress)%"></div>
+        </div>
+        <div class="actions">
+            <button class="primary" @onclick="CheckAsync" disabled="@_busy">Check for updates</button>
+            <button @onclick="RestartToUpdate" disabled="@(!_downloaded)">Restart to update</button>
+        </div>
+        <ul class="log">
+            @foreach (var line in _log)
+            {
+                <li>@line</li>
+            }
+        </ul>
+    </section>
+</main>
+
+@code {
+    private string _version = "";
+    private string _state = "Idle";
+    private string _message = "Updates come from this repository's GitHub releases.";
+    private int _progress;
+    private bool _busy;
+    private bool _downloaded;
+    private UpdateInfo? _pending;
+    private readonly List<string> _log = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _version = Updates.CurrentVersion;
+        if (!Updates.IsInstalled)
+        {
+            _state = "Development build";
+            _message = "Not a Velopack install — update checks are disabled. " +
+                       "Install from the GitHub Setup.exe to enable silent auto-updates.";
+            Log("Running unpackaged; update checks disabled.");
+            return;
+        }
+        Log($"Installed version {_version}.");
+        await CheckAsync(auto: true);
+    }
+
+    private async Task CheckAsync() => await CheckAsync(auto: false);
+
+    private async Task CheckAsync(bool auto)
+    {
+        if (_busy || !Updates.IsInstalled) return;
+        _busy = true;
+        _state = "Checking";
+        Log(auto ? "Auto-check on startup…" : "Checking for updates…");
+        try
+        {
+            var update = await Updates.CheckForUpdatesAsync();
+            if (update == null)
+            {
+                _state = "Up to date";
+                _message = $"You are on the latest version ({_version}).";
+                Log("No update available.");
+            }
+            else
+            {
+                _pending = update;
+                _state = "Downloading";
+                _message = $"Version {update.TargetFullRelease.Version} found — downloading silently…";
+                Log($"Update {update.TargetFullRelease.Version} found; downloading.");
+                await Updates.DownloadUpdatesAsync(update, p =>
+                {
+                    _progress = p;
+                    InvokeAsync(StateHasChanged);
+                });
+                _downloaded = true;
+                _state = "Downloaded";
+                _message = $"Version {update.TargetFullRelease.Version} downloaded. " +
+                           "It applies silently on the next start, or restart now.";
+                Log("Download complete; ready to apply.");
+            }
+        }
+        catch (Exception ex)
+        {
+            _state = "Error";
+            _message = ex.Message;
+            Log("Update check failed: " + ex.Message);
+        }
+        finally
+        {
+            _busy = false;
+            StateHasChanged();
+        }
+    }
+
+    private void RestartToUpdate()
+    {
+        if (_pending != null)
+        {
+            Log("Restarting to apply the update…");
+            Updates.ApplyUpdatesAndRestart(_pending);
+        }
+    }
+
+    private void Log(string text) =>
+        _log.Insert(0, $"{DateTime.Now:HH:mm:ss} — {text}");
+}
