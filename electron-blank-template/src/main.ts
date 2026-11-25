@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 import started from 'electron-squirrel-startup';
+import { autoUpdater } from 'electron-updater';
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
@@ -31,6 +32,21 @@ const createWindow = (): void => {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow();
+
+  // Live updates: the feed (latest.yml) lives in this template's folder
+  // in the platform repository; the installer it points to is attached
+  // to the electron-v<version> release. Updates download in the
+  // background and install when the app quits.
+  if (app.isPackaged) {
+    autoUpdater.setFeedURL({
+      provider: 'generic',
+      url: 'https://raw.githubusercontent.com/kaua-silbershlach-parodes/platform-blank-template/main/electron-blank-template',
+    });
+    autoUpdater.autoInstallOnAppQuit = true;
+    autoUpdater.checkForUpdates().catch(() => {
+      // Offline or feed unreachable: try again on next launch.
+    });
+  }
 
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
