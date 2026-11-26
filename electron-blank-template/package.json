@@ -1,7 +1,7 @@
 {
   "name": "electron-blank-template",
   "productName": "Electron Blank Template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Electron blank template with webpack and TypeScript, by A Elite Estrangeira.",
   "keywords": [],

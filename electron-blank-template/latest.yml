@@ -1,8 +1,8 @@
-version: 1.0.0
+version: 1.0.1
 files:
-  - url: https://github.com/kaua-silbershlach-parodes/platform-blank-template/releases/download/electron-v1.0.0/Electron.Blank.Template_1.0.0_x64-setup.exe
-    sha512: VbUuFCEstLiDH9t0e8ptoU4m52f/jaaAHj3+yha5GdavGut8kVmiZaYuoTSGB4RLG1J65lcpUwrG0Wr/QSWiRA==
-    size: 116072340
-path: https://github.com/kaua-silbershlach-parodes/platform-blank-template/releases/download/electron-v1.0.0/Electron.Blank.Template_1.0.0_x64-setup.exe
-sha512: VbUuFCEstLiDH9t0e8ptoU4m52f/jaaAHj3+yha5GdavGut8kVmiZaYuoTSGB4RLG1J65lcpUwrG0Wr/QSWiRA==
-releaseDate: '2026-11-25T21:04:00.000Z'
+  - url: https://github.com/kaua-silbershlach-parodes/platform-blank-template/releases/download/electron-v1.0.1/Electron.Blank.Template_1.0.1_x64-setup.exe
+    sha512: Epm/wwbSnVBAVAqB8UVCu2WDTcyNQYDL/88zDrUSX+Zkl4rAFKbDJEFstAJt7RtCLyM9b9I+tcSLIDp52I/aJQ==
+    size: 116028016
+path: https://github.com/kaua-silbershlach-parodes/platform-blank-template/releases/download/electron-v1.0.1/Electron.Blank.Template_1.0.1_x64-setup.exe
+sha512: Epm/wwbSnVBAVAqB8UVCu2WDTcyNQYDL/88zDrUSX+Zkl4rAFKbDJEFstAJt7RtCLyM9b9I+tcSLIDp52I/aJQ==
+releaseDate: '2026-11-26T00:02:23.000Z'
