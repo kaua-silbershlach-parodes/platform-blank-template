@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "app": {
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "height": 600,
+        "label": "main",
+        "minHeight": 480,
+        "minWidth": 640,
+        "title": "Extractor Blank Template",
+        "width": 880
+      }
+    ],
+    "withGlobalTauri": true
+  },
+  "build": {
+    "frontendDist": "../ui"
+  },
+  "bundle": {
+    "active": true,
+    "createUpdaterArtifacts": true,
+    "icon": [
+      "icons/icon.ico",
+      "icons/icon.png"
+    ],
+    "targets": [
+      "nsis"
+    ],
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser"
+      }
+    }
+  },
+  "identifier": "com.aeliteestrangeira.extractorblanktemplate",
+  "plugins": {
+    "updater": {
+      "endpoints": [
+        "https://raw.githubusercontent.com/kaua-silbershlach-parodes/platform-blank-template/main/extractor-blank-template/latest.json"
+      ],
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDBGRkMxQTg3NEFGNUU2QTEKUldTaDV2VktoeHI4RDFjc0Y3SFp2cmQrRWt5dkl4WFZTS2NUOHNWaUc3VVZPNzQrRmRYRTRGQ0MK",
+      "windows": {
+        "installMode": "quiet"
+      }
+    }
+  },
+  "productName": "Extractor Blank Template",
+  "version": "1.0.0"
+}

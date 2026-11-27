@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "notes": "Initial base release for Extractor Blank Template.",
+  "pub_date": "2026-11-27T08:41:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTaDV2VktoeHI4RDZaQ3pPYWRWMm5TL2FJei9ac3J1cUE4RjcxaE0yRFpPUVlFVzREL1RTaEF6VGpoaU50SGZrVjF1NmlmTDFxM2lGZUY1ZWhvZVZBV1BYMzVQbXlMd2d3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1NzY4ODQ3CWZpbGU6RXh0cmFjdG9yIEJsYW5rIFRlbXBsYXRlXzEuMC4wX3g2NC1zZXR1cC5leGUJdmVyc2lvbjoxLjAuMApRZEhVVldTcFQrU3J3UTJGWVA1c0dhU3ZrOFlHOTExL2FxVXNMSjNYY29HZXE4VTRGRGVQU2lYV1VrV0MvTkIwMWM3U2RQd3UwdXNlWTFZTXJ5a09Cdz09Cg==",
+      "url": "https://github.com/kaua-silbershlach-parodes/platform-blank-template/releases/download/extractor-v1.0.0/Extractor.Blank.Template_1.0.0_x64-setup.exe"
+    },
+    "windows-x86_64-nsis": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTaDV2VktoeHI4RDZaQ3pPYWRWMm5TL2FJei9ac3J1cUE4RjcxaE0yRFpPUVlFVzREL1RTaEF6VGpoaU50SGZrVjF1NmlmTDFxM2lGZUY1ZWhvZVZBV1BYMzVQbXlMd2d3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1NzY4ODQ3CWZpbGU6RXh0cmFjdG9yIEJsYW5rIFRlbXBsYXRlXzEuMC4wX3g2NC1zZXR1cC5leGUJdmVyc2lvbjoxLjAuMApRZEhVVldTcFQrU3J3UTJGWVA1c0dhU3ZrOFlHOTExL2FxVXNMSjNYY29HZXE4VTRGRGVQU2lYV1VrV0MvTkIwMWM3U2RQd3UwdXNlWTFZTXJ5a09Cdz09Cg==",
+      "url": "https://github.com/kaua-silbershlach-parodes/platform-blank-template/releases/download/extractor-v1.0.0/Extractor.Blank.Template_1.0.0_x64-setup.exe"
+    }
+  }
+}
